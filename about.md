@@ -1,15 +1,17 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
-Some information about you!
+Hi!
+
+I'm Lewis and I'm a Computer Science graduate from Staffordshire university.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I currently work as a software engineer for Capgemini working with Big Data technologies.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[lewisdgavin@gmail.com](mailto:lewisdgavin@gmail.com)
