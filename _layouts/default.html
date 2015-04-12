@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+   <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'> 
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
     {% include meta.html %}
@@ -17,7 +18,8 @@
 
   <body>
     <div class="wrapper-masthead">
-      <div class="container">
+      <div class="headercontainer">
+	<div class="container">
         <header class="masthead clearfix">
           <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
 
@@ -31,6 +33,7 @@
             <a href="{{ site.baseurl }}/about">About</a>
           </nav>
         </header>
+	</div>
       </div>
     </div>
 

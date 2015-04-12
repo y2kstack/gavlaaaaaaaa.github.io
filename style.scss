@@ -20,7 +20,7 @@ html {
 body {
 	background: $white;
   font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  color: $black;
 }
 
 .container {
@@ -29,10 +29,17 @@ body {
   padding: 0 10px;
   width: 100%;
 }
+.headercontainer {
+  margin: 0 auto;
+  //max-width: 740px;
+  padding: 0 10px;
+  width: 100%;
+  background: $nice_blue;
+}
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
+  font-family: $archdaughter;
+  color: $darkGray;
   font-weight: bold;
 
   line-height: 1.7;
@@ -156,8 +163,8 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
-
+  //border-bottom: 1px solid $lightGray;
+  background: $nice_blue;
   @include mobile {
     text-align: center;
   }
@@ -182,7 +189,14 @@ img {
 
 .site-info {
   float: left;
-
+a {
+  color: $black;
+  text-decoration: none;
+        cursor: pointer;
+  &:hover, &:active {
+    color: $lightGray;
+  }
+}
   @include mobile {
     float: none;
     display: block;
@@ -202,7 +216,7 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: $white;
   font-size: 16px;
 
   @include mobile {
@@ -229,7 +243,10 @@ nav {
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
-
+        cursor: pointer;
+  &:hover, &:active {
+    color: $white;
+  }
     @include mobile {
       margin: 0 10px;
       color: $blue;
