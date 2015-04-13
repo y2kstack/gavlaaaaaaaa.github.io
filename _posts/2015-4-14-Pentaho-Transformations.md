@@ -11,3 +11,16 @@ It allows rows to be input from a number of input sources, transformed and then 
 Below is an example of a transformation with two steps and a hop.
 
 ![Pentaho-Hop](https://anotherreeshu.files.wordpress.com/2014/12/capture11.png)
+
+## Steps
+A **Step** is represented by an icon within the *Spoon* interface and at a transformation level does something to so data.
+In the above diagram there is a Table input step that will bring in data from a database table and then an file output step that will allow the data to be written to a file in a user specified location and format.
+
+**Important characteristics:**
+1. Step names must be unique within a transformation
+2. Most steps can both read and write data (there are a few exceptions)
+3. Steps can pass data to one or more other steps through outgoing hops.
+4. Most steps can have multiple outgoing hops
+5. When a transformation is run, one or more copies of each step are initialised and run in their own thread - all these steps run simultaneously (or as parallel as possible).
+6. Each step has a set of features that define its functionality.
+
