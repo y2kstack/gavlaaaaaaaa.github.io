@@ -31,7 +31,7 @@ In the above diagram there is a Table input step that will bring in data from a 
 6. Each step has a set of features that define its functionality.
 
 ## Hops
-A **Hop** defines that data flow between two steps and is represented by an arrow.
+A **Hop** defines the data flow between two steps and is represented by an arrow.
 
 A hop can take many forms such as: 
 
