@@ -11,7 +11,8 @@ In order to add rows to the results set, you simply use the **Copy rows to resul
 ![Copy rows to results](../images/Pentaho/copy_rows_result.png)
 
 To retrieve the rows in another transformation, you use the **Get rows from results** step:
-![Get rows from results](../images/Pentaho/get_rows_result.png)
+
+![Get rows from results](../images/Pentaho/get_rows_results.png)
 
 By leaving all options within this step blank, it will obtain all the rows from results, however you can specify the
 specific column(s) you wish to obtain too by name; in the example they are blank like so:
