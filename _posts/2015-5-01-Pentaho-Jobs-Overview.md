@@ -21,14 +21,20 @@ it does a job level step, which checks if a file exists.
 You can also string whole jobs together in the same way as you do transformations, if you want to abstract up a level. Some important characteristics of Job entries are:
 
 1. A job step will pass a result object between jobs steps. The result object contains rows and all these rows, once a particular job entry is completed, are passed together to the next job entry, and are not streamed.
+
 2. By default job entries are executed in a sequence and only rarely are they executed in parallel.
+
 3. You must have a start entry in order to begin the sequence of job steps.
 
 ## Job Hops
 There are 3 types of job hops that can be used:
+
 1. Uncoditional - the next job step will always excute, regardless of what happens in the previous step - this hop is a black arrow with a padlock on it.
+
 2. Follow when true - the next job step attached will only execute if the previous job step executes successfully (completed with true) - this hop is green with a tick
+
 3. Follow when false - the next job step attached will only execute if the previous job step execution was false/unsuccessful - this hop is red with a stop icon.
+
 
 The following diagram shows an example of a job using the three different hop types.
 ![Job Hops](../images/Pentaho/job_hops.png)
