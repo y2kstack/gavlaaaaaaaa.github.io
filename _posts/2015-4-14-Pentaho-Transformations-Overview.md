@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Pentaho Transformations Overview
+tags:
+- Pentaho
 ---
 
 A **Transformation** is a connection of steps that allow **ETL** processes to take place on top of data.

@@ -13,7 +13,14 @@ layout: null
         <title>{{ post.title | xml_escape }}</title>
         <description>{{ post.content | xml_escape }}</description>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>{{ site.url }}{{ post.url }}</link>
+        <link>{{ site.url }}{{ post.url }}
+	</link><i class="icon-tags"></i> 
+		{% for tag in page.tags %} 
+			<a href="/tags/{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;"><u>{{ tag }}</u></a>  
+			{% if forloop.last != true %} 
+			{% endif %} 
+		{% endfor %}
+
         <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
       </item>
     {% endfor %}
