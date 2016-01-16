@@ -8,7 +8,6 @@ tags:
 - Google
 ---
 
-_Note: If you want to see the ads running on this page, remember to remove your adblocker ;)_
 
 ##Google Analytics
 
@@ -59,5 +58,7 @@ You should then recieve ads on all pages that utilise that layout!
 ##3. Linking with Analytics
 
 You can link Analytics and Adsense together from the adense home page and clicking **Integrate with Google Analytics** and following the instructions. Couldn't be simpler!
+
+_Note: If you want to see the ads by Google AdSense running on this page, remember to disable your adblocker on this page;)_
 
 Hope you find this useful. Feel free to comment if you have any questions.
