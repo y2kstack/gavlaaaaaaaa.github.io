@@ -49,7 +49,7 @@ My Github hosted website is being used primarily as a blog... as you can see. So
 To do this, take the provided code and create yourself a file called **advertisements.html** within the _includes folder. Within this file simply paste your code.
 
 Then go into the **_layouts/posts.html** file (or any layout file for which you would like ads displayed) and insert the following code.
-``{% include advertising.html %}``
+`\{\% include advertising.html \%\}`
 
 I did this right towards the bottom, but the placements is totally up to you.
 
