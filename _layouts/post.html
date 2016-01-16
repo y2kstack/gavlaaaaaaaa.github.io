@@ -13,9 +13,8 @@ layout: default
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
   
-  {% if page.ads == true %}
-     {% include advertising.html %}
-  {% endif %}
+  <!-- include google ads -->
+  {% include advertising.html %}
   
   {% include disqus.html %}
 </article>
