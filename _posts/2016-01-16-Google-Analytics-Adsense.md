@@ -8,7 +8,7 @@ tags:
 - Google
 ---
 
-**Note: If you want to see the ads running on this page, remember to remove your adblocker :wink:**
+**Note: If you want to see the ads running on this page, remember to remove your adblocker ;) **
 
 ##Google Analytics
 
