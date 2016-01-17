@@ -9,7 +9,6 @@ tags:
 ---
 
 
-
 ##Google Analytics
 
 Google Analytics allows you to get information about your sites visitors such as the devices or OS they were using and their location. It goes without saying that information like this can be very useful for deciding how best to deliver content.
@@ -48,9 +47,9 @@ My Github hosted website is being used primarily as a blog... as you can see. So
 
 To do this, take the provided code and create yourself a file called **advertisements.html** within the _includes folder. Within this file simply paste your code.
 
-Then go into the **_layouts/posts.html** file (or any layout file for which you would like ads displayed) and insert the following code.
-`  <!-- include google ads -->
-  {% include advertising.html %}`
+Then go into the **_layouts/posts.html** file (or any layout file for which you would like ads displayed) and insert the following code (without all the backslashes).
+
+`\{\% include advertising.html \%\}`
 
 I did this right towards the bottom, but the placements is totally up to you.
 
@@ -59,5 +58,7 @@ You should then recieve ads on all pages that utilise that layout!
 ##3. Linking with Analytics
 
 You can link Analytics and Adsense together from the adense home page and clicking **Integrate with Google Analytics** and following the instructions. Couldn't be simpler!
+
+_Note: If you want to see the ads by Google AdSense running on this page, remember to disable your adblocker on this page;)_
 
 Hope you find this useful. Feel free to comment if you have any questions.
