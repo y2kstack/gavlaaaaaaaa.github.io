@@ -90,4 +90,6 @@ Well thats it for this first part. Short, sweet and simple!
 
 There are a vast number of different steps that would take an age to explain but are mostly really intuitive to use with the small amount of knowledge displayed in this post. Pentaho provide a set of [documentation](http://wiki.pentaho.com/display/EAI/Pentaho+Data+Integration+Steps) for each step that is very useful too.
 
-Let me know if you want to see more of this.
+Let me know if you want to see more of this :)
+
+If you enjoyed this, please check out [PART 2](http://gavlaaaaaaaa.github.io/Pentaho-Jobs-Overview/)

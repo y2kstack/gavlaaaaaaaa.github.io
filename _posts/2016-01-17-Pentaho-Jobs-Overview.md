@@ -6,6 +6,9 @@ tags:
 - Tutorial
 ---
 
+This is Part 2 of the Pentaho series. If you haven't yet already, check out [PART 1](http://gavlaaaaaaaa.github.io/Pentaho-Transformation-Overview/) first!
+
+##Jobs
 A **Job** allows high level steps to be strung together and is very useful for running maintenance style tasks such as verifying files or databases exists for example.
 
 Due to the nature of maintenance tasks, its important that they are run in a specific order; Check database exists -> grab some data, you wouldn't want these tasks performed in a different order or in parallel. This is another reason why Jobs are used for these tasks, as unlike Transformations, they do not execute all steps in parallel.
