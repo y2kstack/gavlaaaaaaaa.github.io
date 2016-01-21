@@ -6,7 +6,7 @@ tags:
 - Tutorial
 ---
 
-This is Part 2 of the Pentaho series. If you haven't yet already, check out [PART 1](http://gavlaaaaaaaa.github.io/Pentaho-Transformation-Overview/) first!
+This is Part 2 of the Pentaho series. If you haven't yet already, check out [PART 1](http://gavlaaaaaaaa.github.io/Pentaho-Transformations-Overview/) first!
 
 ##Jobs
 A **Job** allows high level steps to be strung together and is very useful for running maintenance style tasks such as verifying files or databases exists for example.

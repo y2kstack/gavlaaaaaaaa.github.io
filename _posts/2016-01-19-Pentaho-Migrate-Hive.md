@@ -8,7 +8,7 @@ tags:
 
 This is Part 3a of the Pentaho series where I will be covering some more advance aspects of Pentaho DI by demonstrating its capabilites in migrating a set of databases from MySQL to Hive.
 
-If you've missed [PART 1](http://gavlaaaaaaaa.github.io/Pentaho-Transformation-Overview/) or [PART 2](http://gavlaaaaaaaa.github.io/Pentaho-Jobs-Overview/) then you can always jump back!
+If you've missed [PART 1](http://gavlaaaaaaaa.github.io/Pentaho-Transformations-Overview/) or [PART 2](http://gavlaaaaaaaa.github.io/Pentaho-Jobs-Overview/) then you can always jump back!
 
 ##Migrating MySQL to Hive
 With Big Data technologies becoming the norm for any large scale company, you may find yourself in the position where all of your existing databases and tables could do with being introduced to the new world... to kick-start your big data journey.
@@ -49,13 +49,13 @@ Set up a job as below - don't worry about what the second transformation is yet,
 
 ![Job Overview](../images/Pentaho/job_overview_1.png)
 
-The first transformation will just be pointing at the get_tables transformation we just created and doesn't require any more configuration. The second transformation is currently pointing at nothing, but we can configure it ready and go through the reasons why. Double click it and go to the _Advanced_ tab.
+The first transformation will just be pointing at the get\_tables transformation we just created and doesn't require any more configuration. The second transformation is currently pointing at nothing, but we can configure it ready and go through the reasons why. Double click it and go to the _Advanced_ tab.
 
 ![Transformation Loop](../images/Pentaho/job_overview_2.png)
 
 Here we just need to tick **Execute for every input row**. What this does is essentially tell Pentaho that for every row that is output from the previous transformation, execute this transformation that number of times, like a loop. 
 
-Putting that into context for our example, lets say our get_tables transformation fetches 3 tables from our MySQL database. The mysql\_to\_hive transformation would then execute 3 times - this means all steps inside it, from start to finish, are executed 3 times, one after another.
+Putting that into context for our example, lets say our get\_tables transformation fetches 3 tables from our MySQL database. The mysql\_to\_hive transformation would then execute 3 times - this means all steps inside it, from start to finish, are executed 3 times, one after another.
 
 _Why would we want to do this you might be asking?!_
 
