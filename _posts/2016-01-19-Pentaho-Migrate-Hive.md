@@ -10,14 +10,14 @@ This is Part 3a of the Pentaho series where I will be covering some more advance
 
 If you've missed [PART 1](http://gavlaaaaaaaa.github.io/Pentaho-Transformations-Overview/) or [PART 2](http://gavlaaaaaaaa.github.io/Pentaho-Jobs-Overview/) then you can always jump back!
 
-##Migrating MySQL to Hive
+## Migrating MySQL to Hive
 With Big Data technologies becoming the norm for any large scale company, you may find yourself in the position where all of your existing databases and tables could do with being introduced to the new world... to kick-start your big data journey.
 
 Hopefully by the end of this entry you will have enough understanding and inspiration to apply these techniques to **ANY** relational database in order to migrate it into Hive. 
 
 _NOTE: although MySQL is used as an example, this approach can be applied to almost any database technology_
 
-##Step 1 - Connecting to your MySQL instance
+## Step 1 - Connecting to your MySQL instance
 In order to get any data from MySQL we will need a list of tables to pull the data from, and in order to do this we need to set up a connection to the MySQL database.
 
 We need to create a new transformation and add a _Get Table Names_ step, then double click to see how we configure it.
@@ -40,7 +40,7 @@ I don't want to use the table names that this step produced in this transformati
 
 ![Get Table Names Trans](../images/Pentaho/get_tables_4.png)
 
-##Step 2 - Setting up the Job
+## Step 2 - Setting up the Job
 We now have our intitial transformation that obtains a list of all the tables within a database for us.
 
 Now we can set up the over arching job that will call the transformation we just made, and also another transformation that will use these table names to do the migration.
@@ -70,7 +70,7 @@ This, linked with ticking _Execute for every input row_, means that for each tab
 This will allow us to create the hive schemas and load the data from each table into hive one by one, until all tables are complete.
 
 
-##Step 3 - Migrating the data
+## Step 3 - Migrating the data
 
 The next two steps presume you already have a Hadoop cluster configured with Hive installed and the Pentaho Big Data Plugin configured with your Hadoop instance. This is vital in order to do anything with Hive and HDFS from PDI. You'll stumble upon all the helpful documentation on this if you Google 'pentaho big data plugin'.
 
@@ -115,6 +115,6 @@ You should now be able to run this job, and for each table within your MySQL dat
 
 **Note: If you have large tables this may take a very long time to run - I recommend setting the Limit size field within the _Table input_ step to a value like 1000, just to get a small sample to prove the concept.**
 
-##What's next?
+## What's next?
 
 I hope this was useful and that you will stay tuned for Part B of this post where I will further enhance the mysql\_to\_hive transformation to generate the Hive schemas to sit on top of the newly acquired data in HDFS.

@@ -13,7 +13,7 @@ Pentaho DI (PDI) is an ETL tool that allows you to visually process data using a
 Since I'm new to the blog game, please feel free to leave feedback in the comments section on how I could improve!
 
 
-##Transformations
+## Transformations
 
 Transformations are where 99% of the processing magic happens within PDI. 
 
@@ -85,7 +85,7 @@ In the meta tab we can define the columns for our grid, make a column called **H
 Once its run, you should see an _Execution Results_ panel display at the bottom of the page with a bunch of tabs. For now, select the _Logging_ tab. You should see your text displayed. The log will tell you that name of the step outputting the message, the column name (Hello) and the text you entered.
 ![Log Output](../images/Pentaho/log_output.png)
 
-##Summary
+## Summary
 Well thats it for this first part. Short, sweet and simple!
 
 There are a vast number of different steps that would take an age to explain but are mostly really intuitive to use with the small amount of knowledge displayed in this post. Pentaho provide a set of [documentation](http://wiki.pentaho.com/display/EAI/Pentaho+Data+Integration+Steps) for each step that is very useful too.
