@@ -1,6 +1,6 @@
 --- 
 layout: post 
-title: Apache Sqoop for data ingestion 
+title: Apache Sqoop Advanced
 tags: 
 - bigdata 
 - sqoop 
