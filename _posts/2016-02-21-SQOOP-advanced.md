@@ -7,7 +7,6 @@ tags:
 - ingestion 
 --- 
 
-# Advanced SQOOP features
 Here we are going to look at using Sqoop to do a little more than simply import or export data. Including ensuring data imported is in a suitable format for use with Hive. 
 
 For the basics see the initial post here: [Apache Sqoop for data ingestion](http://gavlaaaaaaaa.github.io/Data-Ingestion-SQOOP/)
@@ -28,13 +27,17 @@ Something to consider when importing large objects that are going to be used wit
 Large objects are usually used to store text or documents that often contain more exotic characters. If one of these characters happens to be the delimiter used by Hive then you may experience issues when viewing data. 
 
 **Solutions:**
+
 1. Rather obvious, but just change your hive delimiter to something that's not in the data
+
 2. If you can't guarantee a delimiter won't be in the data, then utilise the ^A character as your hive and import delimiter. This can be set using `\\001`, which is the octal representation for the ^A Utf-8 character. Use this in conjunction with the solution below. 
 
 Similarly, if the large object data contains new line characters then data will spill onto new lines meaning this data will be treated as a row by hive. Again this will cause extra rows that will not be in the same layout as the rest of the data. 
 
 **Solutions:** 
+
 1. Use Sqoops `--hive-drop-import-delims` or `--hive-delims-replacement` parameters to remove newline or ^A characters from the data or replace them with your own defined string. 
+
 2. Make your hive table an Avro table and use the `--as-avrodatafile` parameter when importing. Avro doesn't use newline characters as row delimiters like the text file format, meaning new lines can be preserved within data columns. 
 
 ## Incremental loads
