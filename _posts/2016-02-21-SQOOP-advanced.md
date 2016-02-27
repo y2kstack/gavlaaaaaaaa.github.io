@@ -7,7 +7,7 @@ tags:
 - ingestion 
 --- 
 
-Here we are going to look at using Sqoop to do a little more than simply import or export data. Including ensuring data imported is in a suitable format for use with Hive. 
+Here we are going to look at using Sqoop to do a little more than simply import or export data, including ensuring data imported is in a suitable format for use with Hive. 
 
 For the basics see the initial post here: [Apache Sqoop for data ingestion](http://gavlaaaaaaaa.github.io/Data-Ingestion-SQOOP/)
 
@@ -22,7 +22,7 @@ To change the memory size for importing large objects, use the following paramet
 `--inline-lob-limit`
 
 ### Using imported LOBs with Hive 
-Something to consider when importing large objects that are going to be used with Hive is their content. Especially the inclusion of delimiter characters or newline.
+Something to consider when importing large objects that are going to be used with Hive is their content. Especially the inclusion of delimiter characters or newline characters.
 
 Large objects are usually used to store text or documents that often contain more exotic characters. If one of these characters happens to be the delimiter used by Hive then you may experience issues when viewing data. 
 
@@ -32,7 +32,7 @@ Large objects are usually used to store text or documents that often contain mor
 
 2. If you can't guarantee a delimiter won't be in the data, then utilise the ^A character as your hive and import delimiter. This can be set using `\\001`, which is the octal representation for the ^A Utf-8 character. Use this in conjunction with the solution below. 
 
-Similarly, if the large object data contains new line characters then data will spill onto new lines meaning this data will be treated as a row by hive. Again this will cause extra rows that will not be in the same layout as the rest of the data. 
+Similarly, if the large object data contains new line characters then data will spill onto new lines meaning this spilled data will be treated as it's own row by hive. This will cause extra rows that will not be in the same layout as the rest of the data. 
 
 **Solutions:** 
 
@@ -41,7 +41,7 @@ Similarly, if the large object data contains new line characters then data will 
 2. Make your hive table an Avro table and use the `--as-avrodatafile` parameter when importing. Avro doesn't use newline characters as row delimiters like the text file format, meaning new lines can be preserved within data columns. 
 
 ## Incremental loads
-If you want to keep loading new changes to data on a regular basis, then you should make use of Sqoops Incremental load feature. You pass Sqoop the name of the column to check against, the last value imported and the Incremental mode, then Sqoop will bring in anything newer than this value. 
+If you want to keep loading new changes to the source data on a regular basis, then you should make use of Sqoops Incremental load feature. You pass Sqoop the name of the column to check against, the last value imported and the Incremental mode, then Sqoop will bring in anything newer than this value. 
 
 **Note: the Sqoop docs state the column should not be of type CHAR/NCHAR/VARCHAR/VARNCHAR/ LONGVARCHAR/LONGNVARCHAR**
 
@@ -80,4 +80,4 @@ Sqoop offers the ability to validate your Imports and exports by performing a co
 
 This is especially useful to let you know if data has been imported into text files that contains newline characters as this would cause the counts to be mismatched. 
 
-To utilise this feature simply supply the `--validate` parameter at the end of your sqoop import or export statement. 
+To utilise this feature simply supply the `--validate` parameter at the end of your sqoop import or export statement.
