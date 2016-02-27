@@ -63,7 +63,7 @@ I did this right towards the bottom, but the placements is totally up to you.
 You should then recieve ads on all pages that utilise that layout!
 
 
-## 3. Linking with Analytics
+## Linking with Analytics
 
 You can link Analytics and Adsense together from the adense home page and clicking **Integrate with Google Analytics** and following the instructions. Couldn't be simpler!
 
