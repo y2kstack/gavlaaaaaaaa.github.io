@@ -1,6 +1,7 @@
 --- 
 layout: post 
 title: Apache Sqoop Advanced
+author: Lewis Gavin
 tags: 
 - bigdata 
 - sqoop 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Apache Sqoop for data ingestion
+author: Lewis Gavin
 tags:
 - bigdata
 - sqoop

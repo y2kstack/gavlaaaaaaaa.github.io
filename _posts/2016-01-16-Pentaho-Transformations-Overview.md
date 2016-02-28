@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pentaho Part 1 - Transformations Overview
+author: Lewis Gavin
 tags:
 - Pentaho
 - Tutorial

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pentaho Part 2 - Jobs Overview
+author: Lewis Gavin
 tags:
 - Pentaho
 - Tutorial

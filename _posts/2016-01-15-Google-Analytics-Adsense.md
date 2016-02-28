@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Adding Google Analytics and Googe AdSense to a Jekyll Website
+author: Lewis Gavin
 comments: true
 tags:
 - Git

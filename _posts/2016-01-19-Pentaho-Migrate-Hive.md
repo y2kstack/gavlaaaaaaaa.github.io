@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Pentaho Part 3a - Migrating from MySQL to Hive
+author: Lewis Gavin
 tags:
 - Pentaho
 - Tutorial

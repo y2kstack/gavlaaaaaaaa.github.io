@@ -3,16 +3,26 @@ layout: default
 ---
 
 <article class="post">
+      <div class="cert">
+    	<img src="../images/CCA_SparkHadoopDeveloper-transparency.png" alt="CCASparkHadoopDev" style="width:30%; height:30%";>
+      </div> 
+      <div class="date">
+    	Written on {{ page.date | date: "%B %e, %Y" }}
+    	<br>
+    	Author: {{ page.author }}
+    	<br>
+     	License Number: 100-015-584
+	<br>
+	 
+      </div>
+  <br><br><br>
   <h1>{{ page.title }}</h1>
-
+ 
+  
   <div class="entry">
     {{ content }}
   </div>
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
-  
   <!-- include google ads -->
   {% include advertising.html %}
   
