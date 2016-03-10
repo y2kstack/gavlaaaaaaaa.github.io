@@ -95,6 +95,25 @@ Found 2 items
 
 ### Interceptors
 
+Flume interceptors are useful when you want to apply a set of rules to modify or ignore data being ingested. This can range from adding header information, regex filtering and regex replacing. Interceptors are configured as a **Source** property, and one or more interceptors can be applied to a source by simply using a space seperated list. The order of list defines the order they are applied.
+
+```javascript
+TwitterAgent.sinks = HDFS
+TwitterAgent.sources = Twitter
+TwitterAgent.channels = TwitterChannel
+
+TwitterAgent.sources.Twitter.interceptors = twitIntercept1 twitIntercept2
+TwitterAgent.sources.Twitter.interceptors.twitIntercept1.type = search_replace
+TwitterAgent.sources.Twitter.interceptors.twitIntercept1.searchPattern = RT
+TwitterAgent.sources.Twitter.interceptors.twitIntercept1.replaceString = "Retweet"
+
+TwitterAgent.sources.Twitter.interceptors.twitIntercept2.type = timestamp
+
+...
+```
+
+The above configuration would look for any incoming tweets that contain the string 'RT' and replace it with 'Retweet' and also insert a timestamp in milliseconds into the event headers, containing the time at which the event was processed.
+
 ### Channel Selector
 
 ### Sink processor
