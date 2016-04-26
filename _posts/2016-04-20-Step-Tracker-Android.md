@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to track steps and calculate running distance - Android
+title: Android - How to track steps and calculate running distance
 author: Lewis Gavin
 comments: true
 tags:
