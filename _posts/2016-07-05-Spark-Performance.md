@@ -1,3 +1,13 @@
+---
+layout: post
+title: 5 ways to improve performance of Spark Applications
+author: Lewis Gavin
+tags:
+- bigdata
+- spark
+- performance
+---
+
 ![Spark Performance](../images/sparkperf.png)
 
 Recently I attended the Strata and Hadoop World Conf in London, you can see my post on the day [here](http://www.lewisgavin.co.uk/Strata-Hadoop/). As part of the afternoon technical sessions, I attended a talk by Holden Karau on scaling Spark applications. 
@@ -22,7 +32,7 @@ It is important that you persist/cache your RDD first before checkpointing as ch
 
 **So whats the difference between checkpoints and using `persist(DISK_ONLY)` I hear you ask?**
 Great question! The answer is simple - persisting will materialise and save the RDD in memory or disk or both depending on your configuration and will also **store and remember the lineage**. 
-This means that if are Node failures on the node storing your cached RDD, they can be rebuilt as using the lineage. Checkpoints **do not store the lineage** and will only write RDD contents to disk.
+This means that if there are Node failures on the node storing your cached RDD, they can be rebuilt using the lineage. Checkpoints **do not store the lineage** and will only write RDD contents to disk.
 
 ## 2. Skewed Keys 
 
@@ -57,4 +67,10 @@ Beware though, they aren't perfect. They won't perform well for iterative algori
 
 ## 5. Datasets are the future. 
 
-Datasets are the new data frames. Iterator to Iterator transformations. Allow spark to spill to disk when reading a partition and has better pipelining. Most default transform functions are set up for this. 
+Datasets are the new DataFrames. In fact, they are an extension of the DataFrame API. The API is familiar making it very easy to use and the list of benefits in terms of performance is huge. Datasets have a simpler API, execute faster and have a lower memory overhead in comparison to RDD's. 
+
+They are able to execute faster as Datasets use something called *encoders* to translate between JVM objects and Sparks binary format. These same encoders allow transformations to be applied to seralized data removing the lag of having to deserialize objects all the time. 
+
+These same encoders describe the underlying data structures allowing Spark to optimally store the data in memory when caching. This means that the memory overhead is heavily descreased and will subsiquently improve performance too. Databricks have a great intro [article](https://databricks.com/blog/2016/01/04/introducing-apache-spark-datasets.html) outlining all the benefits Datasets bring.
+
+Seeing as the API is familiar, changing over from RDD's to Datasets is really a no brainer if you're looking to optimize your code.
