@@ -52,6 +52,7 @@ $ curl -XPUT 'http://localhost:9200/blog/page/1' -d '{
 Within the URL after the host and port we have three items. **blog** is the name of the index, **page** is the *type* that we discussed earlier, and the number **1** is simply the ID.
 
 This is what would be returned as the result.
+
 ~~~bash
 {
     "_shards" : {
