@@ -48,6 +48,7 @@ $ curl -XPUT 'http://localhost:9200/blog/page/1' -d '{
     "content" : "This is my blog post on elasticsearch..."
 }'
 ~~~
+
 **Boom** - first index created. So lets break down what this means.
 Within the URL after the host and port we have three items. **blog** is the name of the index, **page** is the *type* that we discussed earlier, and the number **1** is simply the ID.
 
@@ -67,17 +68,20 @@ This is what would be returned as the result.
     "created" : true
 }
 ~~~
+
 This just clarifies what we've just said above and also shows the number of shards/replications created. 
 
 So our document is now stored, we can simply repeat this process for as many blog posts as we create. **So how do we get documents out**
 
 There's an easy way, and a more advanced way. I'll show you an example of both!
 **EASY**
+
 ~~~bash
 curl -XGET 'http://localhost:9200/blog/_search?q=author:lewis'
 ~~~
 
 **ADVANCED**
+
 ~~~bash
 curl -XGET 'http://localhost:9200/blog/page/_search' -d 
 '{
