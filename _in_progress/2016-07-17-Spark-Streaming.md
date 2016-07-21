@@ -47,20 +47,27 @@ So our DStreams are a continuous stream of RDD's. So it shouldn't be a surprise 
  val tweetStream = noRetweetsStream.map(tweet => tweet.getText())
  
  //print 5 tweets from each RDD batch
- tweetStream.foreachRDD{ rdd => rdd.take(5).println() }
+ tweetStream.foreachRDD{ rdd => rdd.take(5).foreach(println) }
  
  ~~~
 
-## Changing from standard Spark to the SparkStreaming API 
+In the above example, we simply take in some tweets, filter out retweets, obtain the tweet content and print them out. We could have done any number of things here such as sentiment analysis or word counts to find out the most common words being used right now. If we were to convert the output to a JSON object and this data could then be sent in a format ready to be visualised by D3.js for example.
 
 ## Use Cases
 
 There are a hundred and one use cases for the Spark Streaming API. The one given in most examples is that of a real time sentiment analytics engine for Twitter. Streaming tweets of a particular subject through spark, running sentiment analytics on all the words within the tweets. Then outputting the results to be reported on by a visualisation library such as D3.js. 
 
-To get this simple use case working, you first need to sign up to the twitter applications page to receive some authentication tokens. 
+To get this simple use case working, you first need to sign up to the [twitter applications page](https://apps.twitter.com/) to receive some authentication tokens. 
 
-You then build your Spark Streaming context. Initialise the twitter stream using the library. Then you're set to go. 
+You then build your Spark Streaming context, initialise the twitter stream as shown above and you're set to go. 
 
-Flat map the words from your set of tweets within your window. Check for positive and negative words against a reference list. Then do a reduce to get the word count and keep the top 50. Keep doing this and join back to your "current" dataset and you have the top 50 words used on twitter for a specific subject along with their sentiment. 
+1. Flat map the words from your set of tweets within your window. 
+2. Check for positive and negative words against a reference list. 
+3. Then do a reduce to get the word count and keep the top 50.
+4. Keep doing this and join back to your "current" dataset and you'll have the current top 50 words used on twitter for a specific subject along with their sentiment. 
 
 This can give you a real time picture of the sentiment surrounding the particular subject matter at this point in time. With some added context of the common words being used. 
+
+## Wrap up
+
+As always I hope this post has been informative and gives a good background of the Spark Streaming API. I would love to hear your feedback or see any spark streaming applications you have built off the back of this post!
