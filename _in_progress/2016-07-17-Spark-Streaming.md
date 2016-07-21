@@ -42,7 +42,7 @@ Depending on how much data your source produces a second should help decide what
 So our DStreams are a continuous stream of RDD's. So it shouldn't be a surprise that we can perform RDD like operations on them.
 
 ~~~java
-//creat stream using TwitterUtils
+ //create stream using TwitterUtils
  val stream = TwitterUtils.createStream(ssc, None)
  
  //Filter out any tweets that are retweets
