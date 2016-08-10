@@ -19,17 +19,15 @@ To get started make sure you have [docker]() installed on your machine. Once tha
 
 1. Pull the latest version of the VM
 
-~~~bash
-docker pull cloudera/quickstart:latest
-~~~
+        docker pull cloudera/quickstart:latest
+
 
 2. Run the Image
 
-**Note:** I have used the `-p` flag to specify which ports I want to be available to my host machine. Port `8888` is for Hue and `8080` will be used for Pentaho BA.
+    **Note:** I have used the `-p` flag to specify which ports I want to be available to my host machine. Port `8888` is for Hue and `8080` will be used for Pentaho BA.
 
-~~~bash
-docker run --hostname=quickstart.cloudera --privileged=true -t -i -p 8888 -p 8080 cloudera/quickstart /usr/bin/docker-quickstart
-~~~
+        docker run --hostname=quickstart.cloudera --privileged=true -t -i -p 8888 -p 8080 cloudera/quickstart /usr/bin/docker-quickstart
+
 
 It's as simple as that - once all the services have started you should be within a shell inside your docker container!
 
@@ -42,8 +40,8 @@ The default port for hue is `8888` however if you open your browser and go to `l
 
 ~~~bash
 $> docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS
-187ace38dbe2        13244abe324dc       "/usr/bin/docker-quic"   13 hours ago        Up 13 hours         21050/tcp, 0.0.0.0:32773->8080/tcp, 0.0.0.0:32772->8888/tcp, 0.0.0.0:32771->9876/tcp  
+CONTAINER ID            IMAGE               COMMAND                  CREATED             STATUS              PORTS
+187ace38dbe2            13244abe324dc       "/usr/bin/docker-quic"   13 hours ago        Up 13 hours         21050/tcp, 0.0.0.0:32773->8080/tcp, 0.0.0.0:32772->8888/tcp, 0.0.0.0:32771->9876/tcp  
 
 ~~~
 
@@ -66,42 +64,38 @@ Unzip the contents of the download file to a suitable location and navigate to t
 
 1. Open up the plugin.properties file and ensure you set the following
 
-~~~bash
-active.hadoop.configuration=cdh55
-~~~
+        active.hadoop.configuration=cdh55
 
-This should be the version of CDH you have minus any special characters (5.5 becomes cdh55). It's likely that you will have a later verson of CDH than the latest CDH instance that Pentaho supports. However I found that cdh55 works with cdh5.7.
+
+    This should be the version of CDH you have minus any special characters (5.5 becomes cdh55). It's likely that you will have a later verson of CDH than the latest CDH instance that Pentaho supports. However I found that cdh55 works with cdh5.7.
 
 2. Copy the following files from your CDH folders to `hadoop-configurations/cdh55` and overwrite the files that already exist
 
-~~~bash
-yarn-site.xml
-mapred-site.xml
-hive-site.xml
-hdfs-site.xml
-core-site.xml
-hbase-site.xml
-~~~
+        yarn-site.xml
+        mapred-site.xml
+        hive-site.xml
+        hdfs-site.xml
+        core-site.xml
+        hbase-site.xml
+
 
 3. Within the same directory open the `config.properties` file and add the following config entry
 
-~~~bash
-authentication.superuser.provider=NO_AUTH
-~~~
+        authentication.superuser.provider=NO_AUTH
 
-This tells Pentaho that we aren't using a kerberos authenticated cluster.
+
+    This tells Pentaho that we aren't using a kerberos authenticated cluster.
 
 4. Start the Pentaho BA server by going back to the root directory of the install `biserver-ce/` and running
 
-~~~bash
-./start-pentaho.sh
-~~~
+        ./start-pentaho.sh
 
-This will start all the necessary services. To track the service bootup you can tail the log in `/biserver-ce/tomcat/logs/catalina.out`.
+
+    This will start all the necessary services. To track the service bootup you can tail the log in `/biserver-ce/tomcat/logs/catalina.out`.
 
 5. Find out the local port that has been mapped for port 8080 using `docker ps` like we did earlier. Then go to your browser and go to the address.
 
-You should see the Pentaho BA login console. To login the default username is `admin` and the password is simply `password`.
+    You should see the Pentaho BA login console. To login the default username is `admin` and the password is simply `password`.
 
 
 ## Saving your Container
