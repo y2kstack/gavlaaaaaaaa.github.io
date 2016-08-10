@@ -1,6 +1,6 @@
 --- 
 layout: post 
-title:  Starting your Big Data Journey with Cloudera and Pentaho: Part 1
+title:  Starting your Big Data Journey with Cloudera and Pentaho Part 1
 author: Lewis Gavin 
 comments: true 
 tags: 
@@ -11,6 +11,7 @@ tags:
 
 ![CDH-Docker-Pentaho-Part1](../images/cdh-docker-1.png)
 
+This is the first part of a multi-part series aimed at demonstrating how to get started in the big data world. The series will include setting up a sandbox environment, ingesting and transforming data with Kafka and Spark and Visualising data using Pentaho BA.
 
 ## Getting Started
 
@@ -137,6 +138,6 @@ We're simply chaining the commands to execute inside the container, to include t
 
 ## What's Next?
 
-That's it for Part 1 of this series. In the next parts of this series I am going to show how to install and configure **Apache Kafka**, build a Kafka application to stream data into our cluster and then serve this data to a Pentaho BA report and CDE dashboard.
+That's it for Part 1 of this series. In the next parts of this series I am going to show how to install and configure **Apache Kafka**, build a Kafka and Spak application to ingest and transform data and then serve this data to a Pentaho BA report and CDE dashboard.
 
 Make sure you follow me on [Twitter](http://www.twitter.com/gavlaaaaaaaa) and [subscribe to my weekly newsletter](http://eepurl.com/b8r2XH) so you dont miss out on the rest of the series!
