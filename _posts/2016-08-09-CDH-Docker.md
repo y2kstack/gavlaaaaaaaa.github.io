@@ -9,6 +9,9 @@ tags:
 - pentaho 
 ---
 
+![CDH-Docker-Pentaho-Part1](../images/cdh-docker-1.png)
+
+
 ## Getting Started
 
 To get started make sure you have [docker]() installed on your machine. Once that is done simply go the [Cloudera Quickstart Docker]() page and follow the really intuitive step by step guide. I will include the instructions for the machine I used below too for reference. (Ubuntu 16-04-1 OS with Docker 1.10.3)
@@ -115,7 +118,25 @@ $> docker commit <CONTAINER_ID> cloudera/quickstart
 
 If you now run `docker images`, it should show the cloudera/quickstart image with a very recent CREATED time.
 
+To take this a step further and ensure Pentaho is started everytime we run the image, we can just modify our startup command slighly.
+
+**From:**
+
+~~~bash
+docker run --hostname=quickstart.cloudera --privileged=true -t -i -p 8888 -p 8080 cloudera/quickstart /usr/bin/docker-quickstart
+~~~
 
 
+**To:**
 
+~~~bash
+docker run --hostname=quickstart.cloudera --privileged=true -t -i -p 8888 -p 9876 -p 8080 cloudera/quickstart /bin/bash -c "/opt/biserver-ce/start-pentaho.sh;/usr/bin/docker-quickstart"
+~~~
 
+We're simply chaining the commands to execute inside the container, to include the Pentaho startup command followed by the startup script provided by Cloudera thats starts all the CDH services.
+
+## What's Next?
+
+That's it for Part 1 of this series. In the next parts of this series I am going to show how to install and configure **Apache Kafka**, build a Kafka application to stream data into our cluster and then serve this data to a Pentaho BA report and CDE dashboard.
+
+Make sure you follow me on [Twitter](http://www.twitter.com/gavlaaaaaaaa) and [subscribe to my weekly newsletter](http://eepurl.com/b8r2XH) so you dont miss out on the rest of the series!
