@@ -9,10 +9,11 @@ tags:
 - pentaho 
 ---
 
+![Data-Ingestion-Kafka-Spark-Part2](../images/bdj-part2.png)
 
 Welcome to part 2 of the series. In [part 1](http://www.lewisgavin.co.uk/CDH-Docker) we looked at installing a CDH quickstart docker container along with Pentaho BA. Now we have some basic infrastructure in place, it's time to start thinking about data!
 
-The logical place to start is **data ingestion**. You can't do anything until you have some data, so in this post we are going to explore using Apache Kafka to stream data in real time from Twitter. If you are not familiar with Kafka I recommend [this post] to outline the basics before continuing.
+The logical place to start is **data ingestion**. You can't do anything until you have some data, so in this post we are going to explore using Apache Kafka to stream data in real time from Twitter. If you are not familiar with Kafka I recommend [this post](http://www.lewisgavin.co.uk/Streaming-Kafka/) to outline the basics before continuing.
 
 ## Installing Kafka
 
@@ -129,4 +130,103 @@ $ java -jar kafka-twitter-producer-1.0-SNAPSHOT.jar <consumer key> <consumer sec
 
 That should start collecting tweets from the hashtag you entered into Kafka.
 
-We can run the 
+We can run the KafkaConsumer script from the quickstart example earlier to make sure our tweets are coming through
+
+~~~bash
+
+$ kafka-console-consumer --zookeeper localhost:2181 --topic twitter-topic --from-beginning
+
+~~~
+
+You should see some json objects being printed out to the screen containing tweet data for tweets that match your hashtag.
+
+## Writing your own Spark Consumer
+
+Now we've got our Kafka producer up and running, its time to write an application to consume and process these tweets. 
+
+To do this we're going to build a [Spark streaming application](http://www.lewisgavin.co.uk/Spark-Streaming/). We will connect to our topic through the zookeeper instance (the same way the simple consumer above works) and generate ngrams from the tweet text. Every 60 seconds we will then list the top 10 3 word phrases from all the tweets collected in that time period.
+
+1 - Set yourself a streaming context up and create a kafka stream
+
+~~~scala
+
+
+val scc = new SparkStreamingContext(conf, Seconds(60))
+
+val kafkaStream = KafkaUtils.createStream(ssc, "localhost:2181", "camus", Map(("twitter-topic", 1)))
+
+~~~
+
+2 - Grab the topic content from the stream and set up a SQL Context
+
+~~~scala
+val lines = kafkaStream.map(x => x._2)
+
+val sqlContext = new SQLContext(ssc.sparkContext)
+
+
+~~~
+
+
+3 - Within your stream, iterate over each RDD and parse out the tweet text (I used the [play framwork](https://www.playframework.com/documentation/2.0/api/scala/play/api/libs/json/package.html) to parse the twitter json object.
+
+Build ngrams from the tweet words (after some cleaning up)
+
+Do a word count on the ngrams to count the number of times each ngram has appeared.
+
+Sort the RDD in descending order and print out the top 10 three word phrases for your hashtag in the last minute.
+
+~~~scala
+
+lines.foreachRDD{ rdd =>
+  //extract the tweet text from each tweet
+  val tweetText = rdd.map(tweet => (Json.parse(tweet).\("id").as[Int], Json.parse(tweet).\("text").as[String]
+  .replaceAll("[\\s]+"," ") //get rid of all the spaces
+  .replaceAll("https?|bigdata|BigData|Bigdata", "") //get rid of common words (my hashtag was bigdata)
+  .split("\\W").toList)) //split into a list of words
+  
+  import sqlContext.implicits._
+
+  val df = tweetText.toDF("id", "text")
+  // build ngrams of size 3
+  val ngram = new NGram().setInputCol("text").setOutputCol("ngrams").setN(3)
+  val ngramDataFrame = ngram.transform(df)
+
+  val ngrams = ngramDataFrame.map(frame => frame.getAs[Stream[String]]("ngrams").toList)
+    .flatMap(x => x) //flat map into a list of each ngram
+    .map(ngram => (ngram,1))//map into tuple with a count of 1 ready to be counted
+    .reduceByKey((v1,v2) => v1 +v2) //count each time every ngram occurs
+      .map(tuple => (tuple._2, tuple._1))// make sure the count is the on the key side of the tuple ready to be sorted
+      .sortByKey(false) // sort in descending order
+    .take(10)//grab the top 10 phrases and print them out
+    .foreach(println)
+
+}
+
+ssc.start()
+ssc.awaitTermination()
+
+
+~~~
+
+
+Thats it! We have successfully built a Kafka producer to ingest data from twitter and a Spark Kafka consumer to process and transform those tweets to give us some (semi) valuable information. Your output should look something like this:
+
+~~~
+(9,#DevOps #DataCenter RT)
+(9,# #DevOps #DataCenter)
+(3,| DevOpsSummit #APM)
+(2,IoT Agility |)
+(2,#IoT #IoE #)
+(2,#DataCenter RT EdKwedar:)
+(2,Agility | ThingsExpo)
+(2,ThingsExpo #IoT #IoE)
+(2,#DataCenter RT gpat1976:)
+(2,DevOpsSummit #APM #DevOps)
+~~~
+
+## Wrap up
+
+Once you have your stream coming in the possibilities are endless. Within the forEachRDD loop you are practically free to manipulate the tweets in whatever way you feel. We could also clean this up by adding a function to cleanse the tweets to remove any non alpha characters etc. so that we get a cleaner and more accurate output list - but I'll leave that to do as an extra.
+
+Thats it for Part 2 - we have successfully ingested some data. Next time we will be looking at ways of storing our transformed data in a way that can be easily updated and then visualised. Make sure you check back next week for the next part of the series.
