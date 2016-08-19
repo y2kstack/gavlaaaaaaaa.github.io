@@ -15,7 +15,7 @@ This is the first part of a multi-part series aimed at demonstrating how to get 
 
 ## Getting Started
 
-To get started make sure you have [docker]() installed on your machine. Once that is done simply go the [Cloudera Quickstart Docker]() page and follow the really intuitive step by step guide. I will include the instructions for the machine I used below too for reference. (Ubuntu 16-04-1 OS with Docker 1.10.3)
+To get started make sure you have [docker](https://docs.docker.com/engine/installation/) installed on your machine. Once that is done simply go the [Cloudera Quickstart Docker](http://www.cloudera.com/documentation/enterprise/5-6-x/topics/quickstart_docker_container.html) page and follow the really intuitive step by step guide. I will include the instructions for the machine I used below too for reference. (Ubuntu 16-04-1 OS with Docker 1.10.3)
 
 1. Pull the latest version of the VM
 
