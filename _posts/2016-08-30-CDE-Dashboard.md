@@ -83,10 +83,15 @@ Now in the Datasources panel, create a datasource in exactly the same way as we 
 Where things differ from above is within the Components Panel. From the left, select Charts > **CCC Bar Chart**. Fill in the properties as follows:
 
 Name = chart
+
 Title = Popular Twitter Phrases
+
 Datasource = impala (or whatever you called your datasource earlier)
+
 Height = 400
+
 Width = 400
+
 HtmlObject = **chart_column** (the name you chose for your column earlier).
 
 Save your progress and click preview. You should be able to see a static Bar Chart showing your ngrams.
