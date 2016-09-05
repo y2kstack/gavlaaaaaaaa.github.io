@@ -52,9 +52,13 @@ query = select ngram, count from twitter_ngram;
 Within the **Components panel** select Others > Query Component from the left. In the properties column select Advanced Properties and fill them in as follows:
 
 Name = impala_component
+
 result var = impala_data
+
 datasource = impala
+
 Post execution =
+
 
 ~~~javascript
 function (){
