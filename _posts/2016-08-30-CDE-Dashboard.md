@@ -9,6 +9,7 @@ tags:
 - pentaho 
 ---
 
+![Big Data Journey 4](../images/ctools-bdj4.png)
 
 This is the final post in the Big Data Journey blog series. So far we have looked at [installing CDH and Pentaho BA using Docker](http://www.lewisgavin.co.uk/CDH-Docker), [ingesting data with Kafka and Spark](http://www.lewisgavin.co.uk/Data-Ingestion-Kafka-Spark) and then in the last post, we looked at [transforming and storing that data in Apache Kudu](http://www.lewisgavin.co.uk/Kudu-Spark). In this final post, we will look at reporting on top of our beautifully ingested and transformed, real time data feed. This will involve using Pentaho CTools to build a simple chart that will update based on the latest picture within our data feed.
 
