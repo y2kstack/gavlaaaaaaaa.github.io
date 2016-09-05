@@ -27,9 +27,9 @@ Now open up a browser and go to the port you found above. The Pentaho BA login p
 
 Once in the main window we need to create a JDBC connection to point at impala. Click *Manage Data Sources* and then the little settings sign and click *create new connection*. Give your connection a name and select **Impala** for the database type. The hostname is **localhost** and the database name should be **default**. The port can stay as 21050. Click test to ensure it can connect to our Impala instance.
 
-## Creating our Dashboard
+## Testing our Connection
 
-Now click Create New > CDE Dashboard from the home window. In the layout panel click the **Add FreeForm** button and within the FreeForm add a HTML element. Give it a name and then select the HTML edit button on the right. You can now write some custom HTML in here to visualise your data. We're going to do a simple test to just prove we can get some data back.
+Now click Create New > CDE Dashboard from the home window. In the layout panel click the **Add Row** button and then the **Add Column** button. Make sur eyou name your Column something sensible such as test_column. Now add a HTML element to your column. Give it a name and then select the HTML edit button on the right. You can now write some custom HTML in here to visualise your data. We're going to do a simple test to just prove we can get some data back.
 
 Fill it in as follows.
 
@@ -50,6 +50,7 @@ Jndi = impala (or whatever you called your Connection earlier)
 query = select ngram, count from twitter_ngram;
 
 Within the **Components panel** select Others > Query Component from the left. In the properties column select Advanced Properties and fill them in as follows:
+
 Name = impala_component
 result var = impala_data
 datasource = impala
@@ -64,3 +65,37 @@ function (){
 Save your progress and click the preview button (top right), you should see something like the following depending on what words are within your table.
 
 ![Ctools test](../images/ctools-test.png)
+
+This example gives you an idea of how to get data back into a HTML element if you ever wanted to integrate your own website into CTools. In the next section we will look at building a CTools dashboard using the community charts.
+
+
+## Creating a CTools Dashboard
+
+Using the example from above as a starting point, we are now going to set up our Dashboard. The first thing to do is to make sure we have a **Row** and a **Column** in our Layout panel. Our **Column** should be given a sensible name such as *chart_column* - Remember this name, it will be needed shortly.
+
+Now in the Datasources panel, create a datasource in exactly the same way as we did above (a sql over JNDI connection to select our data from the twitter_ngram table).
+
+Where things differ from above is within the Components Panel. From the left, select Charts > **CCC Bar Chart**. Fill in the properties as follows:
+
+Name = chart
+Title = Popular Twitter Phrases
+Datasource = impala (or whatever you called your datasource earlier)
+Height = 400
+Width = 400
+HtmlObject = **chart_column** (the name you chose for your column earlier).
+
+Save your progress and click preview. You should be able to see a static Bar Chart showing your ngrams.
+
+![Bar Chart](../images/ctools_chart.png)
+
+Now to make it work in real time and update along with our data, we need to tweak a few settings slightly.
+
+Within the Datasource Panel, make sure that our SQL connections Cache property is set to False. 
+
+Within the Components Panel, go to the advanced properties tab of our bar chart and set the refresh period to something like 5 (this will be 5 seconds). Now when you preview your dashboard, your chart will refresh every 5 seconds to show you the latest data that has been added to your table.
+
+## Wrap Up
+
+We made it. A real time data ingestion pipeline using Kafka and Kudu, with on the fly data transformation with Spark and real time data visualisation with Pentaho BA and CTools. That's it for the Big Data Journey series! I hope you found it useful and can use each of the steps as a guideline to help improve your Big Data skills.
+
+Coming next in the blog is a larger focus on Data Science. I will be starting numerous courses to help boost my Data Science capabilities and will be sharing my lessons learned along the way, so please stay tuned!
