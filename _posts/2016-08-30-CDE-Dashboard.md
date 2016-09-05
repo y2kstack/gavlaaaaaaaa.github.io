@@ -55,6 +55,7 @@ Name = impala_component
 result var = impala_data
 datasource = impala
 Post execution =
+
 ~~~javascript
 function (){
     //call the function within our html object to write the data
