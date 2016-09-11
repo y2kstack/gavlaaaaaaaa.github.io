@@ -20,7 +20,24 @@ layout: default
   
   <div class="entry">
     {{ content }}
-    <br><p>If you liked this content then please <a href="http://eepurl.com/b8r2XH">Sign up for my weekly Newsletter</a> or <a href="http://twitter.com/GavLaaaaaaaa">follow me on twitter</a> where we can discuss more!</p><br>
+    <br>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-via="gavlaaaaaaaa" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <a data-pocket-label="pocket" data-pocket-count="vertical" class="pocket-btn" data-lang="en"></a>
+<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+    <br>
+    <p>If you liked this content then please <a href="http://eepurl.com/b8r2XH">Sign up for my weekly Newsletter</a> or <a href="http://twitter.com/GavLaaaaaaaa">follow me on twitter</a> where we can discuss more!</p>
+    <br>
+
+  </div>
+
+  <div class="PageNavigation">
+  {% if page.previous.url %}
+   Previous: <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+  {% endif %}
+  <br><br>
+  {% if page.next.url %}
+    Next: <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+  {% endif %}
   </div>
 
   <!-- include google ads -->
