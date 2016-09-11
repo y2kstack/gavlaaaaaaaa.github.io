@@ -74,6 +74,14 @@ Save your progress and click the preview button (top right), you should see some
 
 This example gives you an idea of how to get data back into a HTML element if you ever wanted to integrate your own website into CTools. In the next section we will look at building a CTools dashboard using the community charts.
 
+<!--Google Page-level ads -->  
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({
+	    google_ad_client: "ca-pub-5719307070733163",
+	    enable_page_level_ads: true
+	  });
+	</script>
 
 ## Creating a CTools Dashboard
 
