@@ -30,6 +30,7 @@ Once thats all set up we need to perform the following steps:
 Create two test files (CSV's), one for training and the other for test data. Fill it with 6 rows (I'll show an example later). The file should have 2 "columns", the first for the label(I used 1 for a sarcastic row and 0 for a non sarcastic row) and the second for the sentence.
 
 Create two data frames: each with 2 columns "label" and "text" - one data frame for the training data, the other for the test data.
+
 ~~~scala
 
 /* Read in our csv, split on comma and create a tuple. 
