@@ -4,14 +4,22 @@ layout: default
 
 <article class="post">
       <div class="cert">
+      {% if page.author == "Lewis Gavin" %}
     	<img src="../images/CCA_SparkHadoopDeveloper-transparency.png" alt="CCASparkHadoopDev" style="width:30%; height:30%";>
+      {% endif %}
       </div> 
       <div class="date">
     	Written on {{ page.date | date: "%B %e, %Y" }}
     	<br>
-    	Author: <a href="http://twitter.com/GavLaaaaaaaa">{{ page.author }}</a>
-    	<br>
+    	{% if page.social %}	
+	     Author: <a href="http://{{ page.social }}">{{ page.author }}</a>
+    	{% else %}
+	     Author: <a href="http://twitter.com/GavLaaaaaaaa">{{ page.author }}</a>
+	    {% endif %}	
+	<br>
+      {% if page.author == "Lewis Gavin" %}
      	License Number: 100-015-584
+       {% endif %}
 
       </div>
  
