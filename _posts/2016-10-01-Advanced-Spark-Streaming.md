@@ -52,7 +52,8 @@ If you have a block interval of 200ms and a batch interval of 2 seconds this wou
 
 For example changing the batch interval - using the spark.streaming.blockInterval paramter - to 500ms would mean only 4 operations are required to process each batch of data, saving you over half of the overhead. However bear in mind that if this is too large then that will prevent the number of blocks created, and therefore partitions, ultimately leading to inefficient parallelisation.
 
-
+Holden Karau has a great book on Spark for Lightning Fast Big Data Analytics here:
+{% include amazon/holden_spark_fast.html %}
 
 
 
