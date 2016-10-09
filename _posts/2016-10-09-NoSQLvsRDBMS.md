@@ -50,7 +50,7 @@ There are various types of nosql databases including document, graph, key value 
 
 Data is stored in Key-Value pairs with the Value being a complex data structure that is classed as a document - these documents themselves can contain even more complex structures.
 
-Examples: Elasticsearch, Solr
+Examples: Elasticsearch, MongoDB
 
 ### Graph
 
