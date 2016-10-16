@@ -22,6 +22,8 @@ Well the term Data Science itself is heavily overloaded. It's used in a bunch of
 Bearing this in mind, we sat and tried to define what Data Science means to **us**, as depending on who you ask the answer will be slightly different. These answers range from using mathematical models to solve problems with data, investigating data to find insights, using machine learning to solve complex problems... and the list goes on.
 What we wanted was a concise definition that brings together all these key Data Science concepts into one simple definition.
 
+![data science venn diagram](https://4.bp.blogspot.com/-0cbXveb1J_0/V-FtjJZ4rqI/AAAAAAAAMHM/bS32Pio2a1IFOyp5T86S0jiyB-3KAN1iwCEw/s1600/download%2B%25281%2529.png)
+
 *"Data Science is the exploration, extraction and visualisation of insights from a variety of data types"* - and when you look at this, it's no different to what used to be called Business Intelligence or Business Analytics. Funnily enough - we don't think it is, it's a rebranding using some techniques that are exactly the same and others that are slightly matured due to the introduction of machine/deep learning techniques and higher computational power/Big Data/.
 
 You might even have a Data Science team now with a different name...
@@ -33,6 +35,8 @@ This is an easy one to answer and the answer is a single word - **Data**.
 Data used to be seen as something that was collected by scientist running experiments. This data was hopefully converted into information after the experiment and was represented in a way for others to consume and understand. 
 
 As a Data Scientist, your job role is perfectly explained by that short passage above. You collect some data, explore it and run some "experiments" on a small sample, take your findings to a larger sample, learn something new and then represent your findings in a way that provides insight for the end user. 
+
+![Data everywhere](http://www.mememaker.net/static/images/memes/4489127.jpg)
 
 The reason this has become more popular though is down to the vast amounts of data that is available to us. Data is easy to store, computational power is cheap and people interact with services that produce data all day every day. Pretty much every item we interact with on a daily basis has become data producer - and if it isn't now, it most certainly will be. 
 
@@ -60,7 +64,13 @@ Onto the fun part - Analytics. Now you've got a whole bunch of nice clean data, 
 
 There are a number of analytics techniques including simple mathematics: max, mean, average, etc., standard sql statements to join and/or perform calculations on the data, building functions programatically using languages such as R or Scala or using analytics tools such as SAS, Business Objects, Pentaho or many more.
 
-### Data Visualisation
+4. Data Visualisation
 
+You've found out some really interesting information, you've proven things you thought you knew and you've found out other things you never knew were important. Now you need to relay the findings to your peers, clients or management team. This is where visualisation is important. Telling a story with the data, representing it in a way thats easy to digest and in some cases making it interactive are all really important.
 
+For some numbers based results you may find simple bar or line charts suffice. For demonstrating networks and linked entities, producing out a network graph might be useful. For textual based analysis you may want to build a table or a word cloud. Whatever your choice of visualisation technique, the visualisation should supplement and enhance the message of the information, not hinder it. Choose the visualisation due its practicality, not how flashy it looks. Again, there are tools such as SAS, Business Objects, etc. that you can use to visualise your data. However for something a little more bespoke you may find using a javascript library such as D3.js, Ember Charts or Google Charts are useful. 
+
+*Just remember to keep to keep your visuals clean, practical and easy to understand.*
+
+![Data science core concepts infographic](../images/dscoreconcepts.png)
 
