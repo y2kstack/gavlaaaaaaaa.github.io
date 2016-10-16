@@ -46,25 +46,25 @@ With all this data available, we need people who are skilled to experiment and t
 
 Now everyone is on board with what Data Science is and understands why it is popular - it's time to share the core concepts so people can start to explore the domain further.
 
-1. Data Exploration
+### 1 Data Exploration
 
 Grab some data sets and go explore. You can learn a lot from the data by just looking at it. Find schema definitions, investigate API documentation and sift through some records manually. Look at the sort of data that's available, how well populated is it, what are some things you can see immediately that look interesting? What sort of questions could you answer? What data is missing and could supplement it?
 
 This is a key activity to get a rough idea of what's possible and what further data is required to perform some analysis. It also gives you an idea of how the data looks ready for the next step.
 
-2. Data Cleansing
+### 2 Data Cleansing
 
 If you read much around Data Science, you'll hear often that 80% of your time as a Data Scientist is spent cleaning data. As I mentioned earlier, the amount of data being produced by so many different sources means that this data isn't always in a standard format. Text data is especially messy as people write in different cases, use punctuation (correctly or incorrectly) and generally write in different styles. If validation is poor on the collection side, columns you expect to contain numeric values may contain unexpected values, you should never presume the data is correct unless it's being collected from a structured database that validates its input.
 
 If you don't clean your data, your results will suffer. Clean data ensures consistent and more accurate results as data is in the format that you expect and require for your models to work effectively.
 
-3. Data Analytics
+### 3 Data Analytics
 
 Onto the fun part - Analytics. Now you've got a whole bunch of nice clean data, it's time to prove or disprove your hypotheses. If you are dealing with a huge data set, it's probably worth sampling the data into a sensible size to improve the speed of the exploritary analytics. There are a vast amount of analytics techniques using a number of different approaches. Machine learning and Deep learning are the poster boys, these techniques can be "taught" using mathematical algorithms to identify patterns in data. You supply the algorithm some data and with the data you provide the actual answer - for example, give the algorithm a bunch of sentences and label them as either positive or negative. The output will be a model, you can then give this model a sentence without the label and it will predict, based on what it "learnt" whether the sentence was positive or negative. 
 
 There are a number of analytics techniques including simple mathematics: max, mean, average, etc., standard sql statements to join and/or perform calculations on the data, building functions programatically using languages such as R or Scala or using analytics tools such as SAS, Business Objects, Pentaho or many more.
 
-4. Data Visualisation
+### 4 Data Visualisation
 
 You've found out some really interesting information, you've proven things you thought you knew and you've found out other things you never knew were important. Now you need to relay the findings to your peers, clients or management team. This is where visualisation is important. Telling a story with the data, representing it in a way thats easy to digest and in some cases making it interactive are all really important.
 
