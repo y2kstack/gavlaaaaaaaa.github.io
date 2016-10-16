@@ -1,6 +1,6 @@
 --- 
 layout: post 
-title: Data Science: 101 
+title: Data Science 101 
 author: Lewis Gavin 
 comments: true 
 tags: 
