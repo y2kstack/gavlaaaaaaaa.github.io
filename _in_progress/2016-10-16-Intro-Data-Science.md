@@ -70,7 +70,7 @@ You've found out some really interesting information, you've proven things you t
 
 For some numbers based results you may find simple bar or line charts suffice. For demonstrating networks and linked entities, producing out a network graph might be useful. For textual based analysis you may want to build a table or a word cloud. Whatever your choice of visualisation technique, the visualisation should supplement and enhance the message of the information, not hinder it. Choose the visualisation due its practicality, not how flashy it looks. Again, there are tools such as SAS, Business Objects, etc. that you can use to visualise your data. However for something a little more bespoke you may find using a javascript library such as D3.js, Ember Charts or Google Charts are useful. 
 
-*Just remember to keep to keep your visuals clean, practical and easy to understand.*
+*Just remember to keep to keep your visuals clean, practical and easy to understand.* 
 
 ![Data science core concepts infographic](../images/dscoreconcepts.png)
 
