@@ -22,12 +22,15 @@ With all this in hindsight, Agile to me is a culture that promotes: collaborativ
 ## What works well?
 
 **Small teams**
+
 I can't stress this enough. I've worked in big teams, I've worked in teams based in two different physical locations and I've worked in small teams. Small teams, especially when getting started are great. With a team of 4-5 people you quickly get to understand each other and begin **working together**. It's a lot easier to become self managing when there's only a small number of you - even teams of 10 struggle with self management.
 
 **Flat structure**
+
 **Forget all your previous role definitions**. The thing that is most difficult to begin with is the fact that essentially, if you're backlog has been created and prioritised correctly - as a developer you basically work on whatever task is available, keep your team in the loop and you drive the work you do. I've seen many teams struggle to break out of the old "that person is the manager" mentality that they end up doing daily stand-ups and report everthing they've done back to one person. That one person then goes on to ask them to do things. **This is not self managing and this is not what stand ups are for**.
 
 **Utilise the guidelines**
+
 This may be an unusual one to see, as most people say the guidelines are there just for pointers and that you should do what you feel is necessary for your team/project. However, if you are just starting out I would recommend you try to do things by the book, try and enforce the concepts and use the techniques and processes. This will force you to move away from the way you used to work and let you see why certain things are done. Once you have done this for a while - iterate the same way your product does. You can now more openely tweak and modify the processes to suite you as you have a good understanding of what they are.
 
 ## Things to avoid!
