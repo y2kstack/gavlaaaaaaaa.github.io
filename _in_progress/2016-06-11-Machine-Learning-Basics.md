@@ -80,4 +80,10 @@ clf.fit(features_train, labels_train)
 print "Naive Bayes accuracy:", clf.score(features_test, labels_test)
 ~~~
 
+~~~bash
+Naive Bayes accuracy: 0.69784868262
+~~~
+
+With just using the two id's within the data set and no tweaking of the model, we managed to get 70%! It's not bad but it's not perfect either - anything over 80% I would be happy with but it's a starting point. You can now add further Bart and Homer id's from the data set (as there were multiple for their different characters) and start tweaking parameters to see if you can improve the accuracy.
+
 
