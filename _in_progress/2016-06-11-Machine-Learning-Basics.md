@@ -18,6 +18,8 @@ This post requires just basic mathematics knowledge and an interst in data scien
 
 One of the first things to understand about Machine Learning is that at it's most basic abstraction, it is a set of **algorithms** that are **data driven** in order to provide answers. This means that the data itself is just as important as the underlying algorithm. You can split Machine Learning algorithms into two categories: **Supervised** and **Unsupervised**. 
 
+
+
 Supervised learning requires a **labelled** data set. This means each data item and all its **features** that you provide to train the algorithm are labelled with the correct answer. The algorithm then uses this combo of data item and outcome/answer in order to "learn" what sorts of things dictate a certain answer. When provided with data it has never seen before, that isn't labelled, this trained model can then **predict** the answer based on what it has seen before.
 
 Unsupervised learning is the opposite. It does not know upfront what it is looking for so it has to figure out itself how to cluster the features to learn and reach an outcome.
@@ -50,6 +52,32 @@ As a keen observer, you'll notice these probabilities don't add up to 1 (100%). 
 
 As you can see, we now get two probabilities that when added together make 100%. We can also see that theres a 71% chance that Homer said this phrase. As you can see, the order or word combination isn't taken into account, only each individual word and it's frequency. This is the reason behind the name "Naive" - because each **feature** (in our case word) is being treated indepdendently of the others.
 
-## An Example Implementation in Spark
+## An Example Implementation in Python
 
 I wrote a post a short while ago on using Machine Learning to detect sarcasm within Tweets that gives an example of this. However I wanted to use a simpler example based on the Simpsons example I shown above.
+
+I've taken the [Kaggle Simpsons data set](https://www.kaggle.com/wcukierski/the-simpsons-by-the-data) and used the script and character data to try and train a machine learning model, using Naive Bayes, to predict whether it was Homer or Bart that said a certain phrase.
+
+For brevity I will just walk you through the basic implementation of the Naive Bayes classification and my results. To get the main bulk of the code that would help you vectorise the phrases and preprare them into a training and test data set, see the [Udacity Intro to Machine Learning Github repo](https://github.com/udacity/ud120-projects) and take a look at their Naive Bayes examples.
+
+Firstly, filter and split your Simpsons data up - you can do this manually - to get a file that contains one id on every line that is either a Bart id (8) or a Homer id (2). Make another file and put the normalised text for this filtered data on each line (make sure its in the same order as the id's so row 1's id matches row 1's text etc...).
+
+Now for the fun part. Write yourself a simple python application to Vectorise and prepare these data sets ready for learning. You can use the [Udacity example](https://github.com/udacity/ud120-projects/blob/master/tools/email_preprocess.py) and tweak that. Once done you can fit this data into a Naive Bayes model.
+
+~~~python
+import sys
+from simpsons_script_preprocess import preprocess
+
+### obtain your preprocessed data from your preprocessor application
+features_train, features_test, labels_train, labels_test = preprocess()
+
+### Build you Naive Bayes training model
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
+clf.fit(features_train, labels_train)
+
+### Print out the accuracy using the score function
+print "Naive Bayes accuracy:", clf.score(features_test, labels_test)
+~~~
+
+
