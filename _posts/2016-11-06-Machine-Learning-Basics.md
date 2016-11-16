@@ -42,8 +42,11 @@ To walk through how it work's, I am going to use a simple Text Classification ex
 ![naive bayes homer bart example](../images/naive_bayes1.jpg)
 
 Let's walk through what this is showing.
+
 1. The first line is showing the distribution, so how much data do we have for Homer vs Bart - as you can see here its a 50/50 split.
+
 2. For both Homer and Bart there is then 3 words each that they may use, and beneath each word a frequency weighting: how often is the word used by the person. e.g. Homer users the word 'DOH' 50% of the time, 'Donut' 40% and 'No' the final 10% - obviously their vocab is much richer, but this small sample is enough to explain the concepts.
+
 3. Based on what we know and given the statement "No DOH" - We now need to figure out the probability of each person saying that phrase. This is calculated in the final two lines of the above diagram.
 
 As a keen observer, you'll notice these probabilities don't add up to 1 (100%). In order to fix this we need to accumulate the two probabilities to give us the probability of the statement "No DOH" regardless of who said it. We can then calculate the **Posterior Probability** for both Homer and Bart by dividing their original probability by the accumulated one as shown below.
