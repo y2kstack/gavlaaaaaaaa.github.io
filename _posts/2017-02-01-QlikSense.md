@@ -51,7 +51,7 @@ The next step was to try and bring in some more advanced visualisations by tryin
 
 These visualisations will then become available in the **extensions** tab on the left hand side. They work in a similar way to the built-in visualisations, in that you can just drag and drop and immediately begin editing. The one I wanted to test out was the radar. I quite like this as an example because it's quite similar to when you're comparing football players on FIFA, and you want to see how to play stack up against each other across a bunch of different attributes.  
 
-Once installed I dragged it next to my original graph and started playing. It immediately presents you with the option for 2 dimensions and a single measure. I selected Date and then Supplier ID as my two dimensions, and the Avg(Sales) as my measure. Now my dashboard will show the me not only the sum of sales for the month per supplier, but also the sales average.
+Once installed, I dragged it next to my original graph and started playing. It immediately presents you with the option for 2 dimensions and a single measure. I selected Date and then Supplier ID as my two dimensions, and the Avg(Sales) as my measure. Now my dashboard will show the me not only the sum of sales for the month per supplier, but also the sales average.
 
 ![Radar extension supplier comparison in QlikSense](../images/qlik_extension.png)
 
