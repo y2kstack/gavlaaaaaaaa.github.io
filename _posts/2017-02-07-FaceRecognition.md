@@ -83,4 +83,4 @@ I got the following output:
 
 As you can see, in very few lines of code, you can build an image detection application that is generic enough to detect a whole range of things. The only modification is the xml metadata file supplied at runtime. 
 
-In the next posts I will be looking at facial feature alignment so that even pictures with faces at an angle can be aligned to have the core features: eyes, noes and mouth nicely centered. I will then be looking at using this output to train a Deep Learning Model
+In the next posts I will be looking at facial feature alignment so that even pictures with faces at an angle can be aligned to have the core features: eyes, noes and mouth nicely centered. I will then be looking at using this output to train a Deep Learning Model.
