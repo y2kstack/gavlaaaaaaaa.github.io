@@ -29,4 +29,64 @@ I spent quite a long time looking to enhance the code I had from last weeks blog
 
 This sounds well on paper, but in practice trying to find the haarcascade metadata files for each of these coordinates, running it against the image, extracting each set of coordinates and then feeding them individually into a transformation function just seemed like a whole lot of effort. I spent some time playing with this then I decided to look around to see if there was a better solution.
 
-**Turns out I was looking for dlib**. Dlib is a library that basically has facial landmark recognition built in and works perfectly with another python library called openface that helps you transform and skew an image.
+**Turns out I was looking for dlib**. Dlib is a library that basically has facial landmark recognition built in and works perfectly with another python library called **openface** that helps you transform and skew an image.
+
+I found this wonderful example below on a great blog series named [Machine Learning is Fun!](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78#.di1l1wgpv)
+
+~~~python
+import sys
+import dlib
+import cv2
+import openface
+
+# You can download the required pre-trained face detection model here:
+# http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+predictor_model = "shape_predictor_68_face_landmarks.dat"
+
+# Take the image file name from the command line
+file_name = sys.argv[1]
+
+# Create a HOG face detector using the built-in dlib class
+face_detector = dlib.get_frontal_face_detector()
+face_pose_predictor = dlib.shape_predictor(predictor_model)
+face_aligner = openface.AlignDlib(predictor_model)
+
+# Take the image file name from the command line
+file_name = sys.argv[1]
+
+# Load the image
+image = cv2.imread(file_name)
+
+# Run the HOG face detector on the image data
+detected_faces = face_detector(image, 1)
+
+print("Found {} faces in the image file {}".format(len(detected_faces), file_name))
+
+# Loop through each face we found in the image
+for i, face_rect in enumerate(detected_faces):
+
+        # Detected faces are returned as an object with the coordinates
+        # of the top, left, right and bottom edges
+        print("- Face #{} found at Left: {} Top: {} Right: {} Bottom: {}".format(i, face_rect.left(), face_rect.top(), face_rect.right(), face_rect.bottom()))
+
+        # Get the the face's pose
+        pose_landmarks = face_pose_predictor(image, face_rect)
+
+        # Use openface to calculate and perform the face alignment
+        alignedFace = face_aligner.align(534, image, face_rect, landmarkIndices=openface.AlignDlib.OUTER_EYES_AND_NOSE)
+
+        # Save the aligned image to a file
+        cv2.imwrite("aligned_face_{}.jpg".format(i), alignedFace)
+
+~~~
+
+When running the above with my face image it gets skewed and transformed so all my facial features are aligned. As you can see below, it not only aligns the features but increases the size of the face too. I can then do this with multiple facial images so the features are always in the same place.
+
+
+![Face skewed](../images/before_after.jpg)
+
+
+My data should then be ready to use in a Deep Learning model. Now all the features are aligned this should improve the accuracy of the model as position of features shouldn't affect how it predicts who's face it is!
+
+**Join me next week where I hope to run this against multiple images of both myself and other celebrities and try to build a deep learning model to be able to recognise who is in each image!**
+
