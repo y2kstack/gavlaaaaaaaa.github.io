@@ -11,7 +11,7 @@ tags:
 
 ![Image Data Prep for Deep Learning Model](../images/dataprep.png)
 
-Following on from last weeks post on face detection. I wanted to figure out a way to skew images so that facial features were aligned regardless of the angle of the face. 
+Following on from [last weeks post](http://www.lewisgavin.co.uk/FaceRecognition) on face detection. I wanted to figure out a way to skew images so that facial features were aligned regardless of the angle of the face. 
 
 ## Upfront thinking
 
