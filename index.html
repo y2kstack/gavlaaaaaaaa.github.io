@@ -6,7 +6,7 @@ layout: default
   {% for post in site.posts %}
     <article class="post">
     {% assign loopindex = forloop.index | modulo: 4 %}
-    {% if loopindex == 1 and forloop.index > 0  %}
+    {% if loopindex == 1 and forloop.first == false  %}
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Banner ad -->
         <ins class="adsbygoogle"
